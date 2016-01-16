@@ -1,5 +1,7 @@
 package com.klicws.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +20,18 @@ public class User {
 	private long id;
 
 	@Column
+	private String nom;
+
+	@Column
+	private String prenom;
+
+	@Column
+	private Date dateInscription;
+
+	@Column
+	private String username;
+
+	@Column
 	@NotNull
 	@Size(min = 3, max = 50)
 	private String email;
@@ -26,6 +40,38 @@ public class User {
 	@NotNull
 	@Size(min = 4, max = 20)
 	private String password;
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public Date getDateInscription() {
+		return dateInscription;
+	}
+
+	public void setDateInscription(Date dateInscription) {
+		this.dateInscription = dateInscription;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public long getId() {
 		return id;
