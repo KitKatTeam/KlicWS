@@ -1,4 +1,4 @@
-package com.klicws.controller.user;
+package com.klicws.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

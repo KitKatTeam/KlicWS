@@ -1,7 +1,8 @@
-package com.klicws.controller.user;
+package com.klicws.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.klicws.model.User;
@@ -13,7 +14,7 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public User login(User user) {
 
 		User connected = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
