@@ -1,6 +1,6 @@
 package com.klicws.model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -24,9 +24,6 @@ public class Interest {
 	private long id;
 
 	@Column
-	private TypeLocation type;
-
-	@Column
 	private Date date;
 
 	@Column
@@ -35,20 +32,21 @@ public class Interest {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "interest")
 	private List<Comment> comments;
 
+	@Column
+	private Float positionX;
+
+	@Column
+	private Float positionY;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "interest")
+	private List<Tag> tags;
+
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public TypeLocation getType() {
-		return type;
-	}
-
-	public void setType(TypeLocation type) {
-		this.type = type;
 	}
 
 	public List<Comment> getComments() {
@@ -73,5 +71,29 @@ public class Interest {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Float getPositionX() {
+		return positionX;
+	}
+
+	public void setPositionX(Float positionX) {
+		this.positionX = positionX;
+	}
+
+	public Float getPositionY() {
+		return positionY;
+	}
+
+	public void setPositionY(Float positionY) {
+		this.positionY = positionY;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
 	}
 }

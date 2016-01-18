@@ -1,6 +1,5 @@
 package com.klicws.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Created by loicleger on 16/01/16.
@@ -24,11 +25,8 @@ public class Comment {
 	@Column
 	private String text;
 
-	@ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
-	@JoinColumn(name = "auteur_id")
-	private User auteur;
-
-	@ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
+	@JsonIgnore
+	@ManyToOne(targetEntity = Interest.class)
 	@JoinColumn(name = "interest_id")
 	private Interest interest;
 
@@ -48,11 +46,11 @@ public class Comment {
 		this.text = text;
 	}
 
-	public User getAuteur() {
-		return auteur;
+	public Interest getInterest() {
+		return interest;
 	}
 
-	public void setAuteur(User auteur) {
-		this.auteur = auteur;
+	public void setInterest(Interest interest) {
+		this.interest = interest;
 	}
 }
