@@ -82,12 +82,9 @@ public class InterestAPI {
 		return interest;
 	}
 
-	@RequestMapping(value = "/interest/{id}/addTag", method = RequestMethod.GET)
-	public Interest addTag(@PathVariable("id") Long id, String tagName) {
+	@RequestMapping(value = "/interest/{idInterest}/addTag", method = RequestMethod.GET)
+	public Interest addTag(@PathVariable("idInterest") Long id, Tag tag) {
 
-		Tag tag = new Tag();
-
-		tag.setNom(tagName);
 		tag = tagRepository.save(tag);
 
 		Interest interest = interestRepository.findOne(id);
