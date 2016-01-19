@@ -1,4 +1,4 @@
-package com.klicws.rest;
+package com.klicws.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ import com.klicws.model.User;
 import com.klicws.repository.UserRepository;
 
 @RestController
-public class UserRest {
+public class UserAPI {
 
 	@Autowired
 	private UserRepository userRepository;

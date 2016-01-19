@@ -1,4 +1,4 @@
-package com.klicws.rest;
+package com.klicws.api;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import com.klicws.repository.InterestRepository;
 import com.klicws.repository.TagRepository;
 
 @RestController
-public class InterestRest {
+public class InterestAPI {
 
 	@Autowired
 	private InterestRepository interestRepository;
@@ -37,6 +37,12 @@ public class InterestRest {
 
 	@RequestMapping(value = "/interest/add", method = RequestMethod.GET)
 	public Interest add(Interest interest) {
+
+		return interestRepository.save(interest);
+	}
+
+	@RequestMapping(value = "/interest/udpate", method = RequestMethod.GET)
+	public Interest update(Interest interest) {
 
 		return interestRepository.save(interest);
 	}
@@ -92,7 +98,7 @@ public class InterestRest {
 		return interest;
 	}
 
-	@RequestMapping(value = "/interest/{idInterest}/getTags", method = RequestMethod.GET)
+	@RequestMapping(value = "/interest/{idInterest}/tags", method = RequestMethod.GET)
 	public List<Tag> getTags(@PathVariable("idInterest") Long idInterest) {
 
 		Interest interest = interestRepository.findOne(idInterest);
