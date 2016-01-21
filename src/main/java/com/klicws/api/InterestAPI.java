@@ -1,6 +1,9 @@
 package com.klicws.api;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -101,6 +104,26 @@ public class InterestAPI {
 		Interest interest = interestRepository.findOne(idInterest);
 
 		return interest.getTags();
+	}
+
+	@RequestMapping(value = "/interest/getByTags", method = RequestMethod.GET)
+	public List<Interest> findByTags(String[] keys) {
+		List<Interest> interests = interestRepository.findAll();
+		List<Interest> interestsToReturn = new ArrayList<Interest>();
+		Set<Long> ids = new HashSet<Long>();
+		for (String k : keys) {
+			for (Interest i : interests) {
+				for (Tag t : i.getTags()) {
+					if (!ids.contains(t.getId()) && t.getNom().equals(k)) {
+						ids.add(t.getId());
+						interestsToReturn.add(i);
+					}
+				}
+			}
+
+		}
+
+		return interestsToReturn;
 	}
 
 }

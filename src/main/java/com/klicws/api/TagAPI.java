@@ -1,5 +1,8 @@
 package com.klicws.api;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,6 +41,20 @@ public class TagAPI {
 		tagRepository.delete(tag);
 
 		return true;
+	}
+
+	@RequestMapping(value = "/tag/allUnique", method = RequestMethod.GET)
+	public List<String> getAllUnique() {
+
+		List<Tag> tags = tagRepository.findAll();
+		List<String> tagsS = new ArrayList<String>();
+		for (Tag t : tags) {
+			if (tagsS.contains(t.getNom())) {
+				tagsS.add(t.getNom());
+			}
+		}
+
+		return tagsS;
 	}
 
 }
