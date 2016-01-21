@@ -46,34 +46,159 @@ public class Bootstrap implements InitializingBean {
 		user.setPassword("test");
 		user = userRepository.saveAndFlush(user);
 
-		Interest interest = new Interest();
-		interest.setDate(new Date());
-		interest.setDescription("Une station de recyclage");
-		interestRepository.saveAndFlush(interest);
+		// Real interest
+		// Latitude: 43.5629 | Longitude: 1.462807
+		Interest interestR = new Interest();
+		interestR.setPositionX(43.562F);
+		interestR.setPositionY(1.462807F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Poubelle pour le verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
 
-		Comment comment = new Comment();
-		comment.setText("dhfjkhshk");
-		comment = commentRepository.saveAndFlush(comment);
+		// Latitude: 43.56356 | Longitude: 1.460447
+		interestR = new Interest();
+		interestR.setPositionX(43.56356F);
+		interestR.setPositionY(1.460447F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Poubelle pour le verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
 
+		// Latitude: 43.563483 | Longitude: 1.460318
+		interestR = new Interest();
+		interestR.setPositionX(43.563483F);
+		interestR.setPositionY(1.460318F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage textile");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.560333 | Longitude: 1.457459
+		interestR = new Interest();
+		interestR.setPositionX(43.560333F);
+		interestR.setPositionY(1.457459F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.561405 | Longitude: 1.456858
+		interestR = new Interest();
+		interestR.setPositionX(43.561405F);
+		interestR.setPositionY(1.456858F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.567657 | Longitude: 1.464395
+		interestR = new Interest();
+		interestR.setPositionX(43.567657F);
+		interestR.setPositionY(1.464395F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.567059 | Longitude: 1.467442
+		interestR = new Interest();
+		interestR.setPositionX(43.567059F);
+		interestR.setPositionY(1.467442F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.565108 | Longitude: 1.469384
+		interestR = new Interest();
+		interestR.setPositionX(43.565108F);
+		interestR.setPositionY(1.469384F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.564213 | Longitude: 1.470489
+		interestR = new Interest();
+		interestR.setPositionX(43.564213F);
+		interestR.setPositionY(1.470489F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage verre");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.561127 | Longitude: 1.463826
+		interestR = new Interest();
+		interestR.setPositionX(43.561127F);
+		interestR.setPositionY(1.463826F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage papiers");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// just add tag
 		Tag tag = new Tag();
 		tag.setNom("recyclage");
-		tag.setInterest(interest);
+		tag.setInterest(interestR);
 		tag.setType(TypeLocation.POINT);
 		tagRepository.saveAndFlush(tag);
 
-		Interest interest2 = new Interest();
-		interest2.setDate(new Date());
-		interest2.setDescription("Une billeterie");
-		interest2.setTags(new ArrayList<Tag>());
-		interest2.setComments(new ArrayList<Comment>());
-		interestRepository.saveAndFlush(interest2);
+		tag.setInterest(interestR);
+		interestR.getTags().add(tag);
+		interestRepository.saveAndFlush(interestR);
 
-		tag.setInterest(interest2);
-		interest2.getTags().add(tag);
+		// Latitude: 43.562068 | Longitude: 1.469845
+		interestR = new Interest();
+		interestR.setPositionX(43.562068F);
+		interestR.setPositionY(1.469845F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage papiers");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
 
-		comment.setInterest(interest2);
-		interest2.getComments().add(comment);
-		interestRepository.saveAndFlush(interest2);
+		// just add tag
+		tag = new Tag();
+		tag.setNom("recyclage");
+		tag.setInterest(interestR);
+		tag.setType(TypeLocation.POINT);
+		tagRepository.saveAndFlush(tag);
+
+		tag.setInterest(interestR);
+		interestR.getTags().add(tag);
+		interestRepository.saveAndFlush(interestR);
+
+		// Latitude: 43.563747 | Longitude: 1.4655
+		interestR = new Interest();
+		interestR.setPositionX(43.563747F);
+		interestR.setPositionY(1.4655F);
+		interestR.setDate(new Date());
+		interestR.setDescription("Recyclage piles");
+		interestR.setTags(new ArrayList<Tag>());
+		interestR.setComments(new ArrayList<Comment>());
+		interestRepository.saveAndFlush(interestR);
+
+		// just add tag
+		tag = new Tag();
+		tag.setNom("recyclage");
+		tag.setInterest(interestR);
+		tag.setType(TypeLocation.POINT);
+		tagRepository.saveAndFlush(tag);
+
+		tag.setInterest(interestR);
+		interestR.getTags().add(tag);
+		interestRepository.saveAndFlush(interestR);
 
 		logger.info("...Bootstrapping completed");
 	}
