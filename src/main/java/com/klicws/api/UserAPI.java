@@ -22,4 +22,12 @@ public class UserAPI {
 		return connected;
 	}
 
+	@RequestMapping(value = "/subscription", method = RequestMethod.GET)
+	public User subscription(User user) {
+
+		User connected = userRepository.save(user);
+
+		return connected;
+	}
+
 }

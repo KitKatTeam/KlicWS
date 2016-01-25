@@ -21,10 +21,13 @@ public class Interest {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@Column
 	private Date date;
+
+	@Column
+	private String image;
 
 	@Column
 	private String description;
@@ -41,11 +44,11 @@ public class Interest {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "interest")
 	private List<Tag> tags;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -73,6 +76,22 @@ public class Interest {
 		this.description = description;
 	}
 
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public Float getPositionX() {
 		return positionX;
 	}
@@ -89,11 +108,4 @@ public class Interest {
 		this.positionY = positionY;
 	}
 
-	public List<Tag> getTags() {
-		return tags;
-	}
-
-	public void setTags(List<Tag> tags) {
-		this.tags = tags;
-	}
 }

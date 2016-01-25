@@ -1,6 +1,7 @@
 package com.klicws.api;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,12 +41,18 @@ public class InterestAPI {
 
 	@RequestMapping(value = "/interest/add", method = RequestMethod.GET)
 	public Interest add(Interest interest) {
-
+		interest.setDate(new Date());
 		return interestRepository.save(interest);
 	}
 
 	@RequestMapping(value = "/interest/udpate", method = RequestMethod.GET)
-	public Interest update(Interest interest) {
+	public Interest update(@PathVariable("id") Long id, Interest interest) {
+
+		Interest interestLocal = interestRepository.getOne(id);
+		interestLocal.setDescription(interest.getDescription());
+		interestLocal.setImage(interest.getImage());
+		interestLocal.setPositionX(interest.getPositionX());
+		interestLocal.setPositionY(interest.getPositionY());
 
 		return interestRepository.save(interest);
 	}
