@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
@@ -33,12 +32,10 @@ public class User {
 
 	@Column
 	@NotNull
-	@Size(min = 3, max = 50)
 	private String email;
 
 	@Column
 	@NotNull
-	@Size(min = 4, max = 20)
 	private String password;
 
 	public String getNom() {
