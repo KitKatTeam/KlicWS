@@ -36,6 +36,9 @@ public class Interest {
 	private List<Comment> comments;
 
 	@Column
+	private Long userId;
+
+	@Column
 	private Float positionX;
 
 	@Column
@@ -106,6 +109,14 @@ public class Interest {
 
 	public void setPositionY(Float positionY) {
 		this.positionY = positionY;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 }
