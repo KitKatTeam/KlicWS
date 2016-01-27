@@ -46,6 +46,7 @@ public class Bootstrap implements InitializingBean {
 		User user = new User();
 		user.setEmail("test@gmail.com");
 		user.setPassword("test");
+		user.setUsername("testeur");
 		user = userRepository.saveAndFlush(user);
 
 		// VERRE
